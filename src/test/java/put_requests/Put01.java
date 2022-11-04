@@ -36,10 +36,10 @@ I send PUT Request to the Url
 
     @Test
     public void put01() {
-        
+        //Set the Url
         spec.pathParams("1","todos","2",198);
         
-        //
+        //Set The Expected Data
         JsonPlaceHolderTestData obj = new JsonPlaceHolderTestData();
         Map<String,Object> expectedData = obj.expectedDataMethod(21,"Wash the dishes",false);
         System.out.println("expectedData = " + expectedData);
