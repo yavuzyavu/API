@@ -39,18 +39,19 @@ public class Post05ObjectMapper_Map extends JsonplaceholderBaseUrl {
     public void post05ObjectMapper() throws IOException {
 
         //Set the Url
-        spec.pathParams("first","todos");
+        spec.pathParams("first", "todos");
 
         //Set The Expected Data
-//        String jsonInString = "{\n" +
-//                "                                    \"userId\": 55,\n" +
-//                "                                    \"title\": \"Tidy your room\",\n" +
-//                "                                    \"completed\": false,\n" +
-//                "                                    \"id\": 201\n" +
-//                "                                    }" ;
-//
+       /*String jsonInString = "{\n" +
+                "                                    \"userId\": 55,\n" +
+                "                                    \"title\": \"Tidy your room\",\n" +
+                "                                    \"completed\": false,\n" +
+                "                                    \"id\": 201\n" +
+                "                                    }" ;
+       */
+
         JsonPlaceHolderTestData obj = new JsonPlaceHolderTestData();
-        String jsonInString = obj.expectedDataInString(55,"Tidy your room",false);
+        String jsonInString = obj.expectedDataInString(55, "Tidy your room", false);
 
         HashMap expectedData = new ObjectMapper().readValue(jsonInString, HashMap.class);
         System.out.println("expectedData = " + expectedData);
@@ -60,13 +61,12 @@ public class Post05ObjectMapper_Map extends JsonplaceholderBaseUrl {
         response.prettyPrint();
 
         // Do Assertion
-       HashMap actualData = new ObjectMapper().readValue(response.asString(),HashMap.class);
+        HashMap actualData = new ObjectMapper().readValue(response.asString(), HashMap.class);
 
-       assertEquals (201,response.getStatusCode());
-       assertEquals(expectedData.get("completed"),actualData.get("completed"));
-       assertEquals(expectedData.get("title"),actualData.get("title"));
-       assertEquals(expectedData.get("userId"),actualData.get("userId"));
-
+        assertEquals(201, response.getStatusCode());
+        assertEquals(expectedData.get("completed"), actualData.get("completed"));
+        assertEquals(expectedData.get("title"), actualData.get("title"));
+        assertEquals(expectedData.get("userId"), actualData.get("userId"));
 
 
     }

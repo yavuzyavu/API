@@ -14,7 +14,8 @@ public class RestfulTestData {
         return bookingdatesMap;
     }
 
-    public Map<String,Object> expectedDataMethod(String firstname, String lastname, Integer totalprice, Boolean depositpaid, Map<String ,String> bookingdates){
+    public Map<String,Object> expectedDataMethod(String firstname, String lastname, Integer totalprice,
+                                                 Boolean depositpaid, Map<String ,String> bookingdates){
 
         Map<String ,Object> expectedDataMap = new HashMap<>();
         expectedDataMap.put("firstname",firstname);
